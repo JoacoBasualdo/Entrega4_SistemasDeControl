@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.8)  7 OCT 2026 13:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.8)  12 OCT 2026 12:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -471,7 +471,43 @@ Package caption Info: End \AtBeginDocument code.
 Package babel Info: Main language set to 'spanish'.
  [1{c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-] (./main.aux
+]
+<imagenes/Ej2.png, id=11, 446.41782pt x 193.47281pt>
+File: imagenes/Ej2.png Graphic file (type png)
+<use imagenes/Ej2.png>
+Package pdftex.def Info: imagenes/Ej2.png  used on input line 90.
+(pdftex.def)             Requested size: 426.79134pt x 184.97012pt.
+ [2{c:/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./imagenes/ej2.png>]
+<imagenes/unasing.png, id=23, 934.24031pt x 633.86812pt>
+File: imagenes/unasing.png Graphic file (type png)
+<use imagenes/unasing.png>
+Package pdftex.def Info: imagenes/unasing.png  used on input line 169.
+(pdftex.def)             Requested size: 426.79134pt x 289.57109pt.
+ [3 <./imagenes/unasing.png>] [4]
+<imagenes/dosing.png, id=37, 1444.64719pt x 691.83469pt>
+File: imagenes/dosing.png Graphic file (type png)
+<use imagenes/dosing.png>
+Package pdftex.def Info: imagenes/dosing.png  used on input line 293.
+(pdftex.def)             Requested size: 426.79134pt x 204.38504pt.
+ [5 <./imagenes/dosing.png>]
+<imagenes/Ej5.png, id=42, 444.91219pt x 85.82062pt>
+File: imagenes/Ej5.png Graphic file (type png)
+<use imagenes/Ej5.png>
+Package pdftex.def Info: imagenes/Ej5.png  used on input line 377.
+(pdftex.def)             Requested size: 426.79134pt x 82.32529pt.
+ [6]
+<imagenes/Ej5a.png, id=46, 1444.64719pt x 677.53125pt>
+File: imagenes/Ej5a.png Graphic file (type png)
+<use imagenes/Ej5a.png>
+Package pdftex.def Info: imagenes/Ej5a.png  used on input line 406.
+(pdftex.def)             Requested size: 426.79134pt x 200.15945pt.
+ [7 <./imagenes/Ej5.png> <./imagenes/Ej5a.png>] [8]
+<imagenes/Ej5b.png, id=56, 1444.64719pt x 676.77844pt>
+File: imagenes/Ej5b.png Graphic file (type png)
+<use imagenes/Ej5b.png>
+Package pdftex.def Info: imagenes/Ej5b.png  used on input line 534.
+(pdftex.def)             Requested size: 426.79134pt x 199.93706pt.
+ [9] [10 <./imagenes/Ej5b.png>] (./main.aux
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
 )
@@ -481,18 +517,18 @@ L3 programming layer <2026-08-10>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 9563 strings out of 467099
- 163079 string characters out of 5412503
- 605210 words of memory out of 5000000
- 38777 multiletter control sequences out of 15000+600000
- 630630 words of font info for 50 fonts, out of 8000000 for 9000
+ 9641 strings out of 467099
+ 164688 string characters out of 5412503
+ 617210 words of memory out of 5000000
+ 38851 multiletter control sequences out of 15000+600000
+ 632230 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,11n,131p,371b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (1 page, 60320 bytes).
+ 83i,12n,131p,421b,388s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb>
+Output written on main.pdf (10 pages, 755310 bytes).
 PDF statistics:
- 33 PDF objects out of 1000 (max. 8388607)
- 19 compressed objects within 1 object stream
+ 136 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
