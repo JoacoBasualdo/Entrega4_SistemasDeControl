@@ -542,7 +542,289 @@ s^0 & 100K - 24 &
     \item Con $K = 0{,}245$ (sobreamortiguado) y $K = 0{,}25$ (crítico) el sistema es estable pero tarda más que 4 s, ya que los polos no tienen parte real $-1$.
 \end{itemize}
 
+\section*{Ejercicio 9}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ej9.png}
+\end{figure}
 
+Los requisitos para el controlador PI son:
+\begin{enumerate}
+    \item Respuesta subamortiguada (0<$\zeta$<1)
+    \item $\omega_n = 1$
+\end{enumerate}
+
+\subsection*{Compensación modificando sólo la ganancia}
+
+Según la regla 1 de compensación, es apropiado probar utilizando solo la ganancia primero.
+La ecuación característica resulta:
+\[
+1+K\cdot G = 0 \rightarrow s^2 + 6s + (5+5K) = s^2 + 2\zeta \omega_n s + \omega_n^2 = 0
+\]
+Igualando términos:
+\[
+\omega_n^2 = 5K + 5
+\]
+Para $K > 0$ resulta $\omega_n^2 > 5$, es decir $\omega_n > \sqrt{5} \approx 2{,}24$ rad/s, por lo que no puede valer 1. 
+El único valor de ganancia que daría $\omega_n = 1$ es $K = -0{,}8$, pero no es válido: de $2\zeta\omega_n = 6$ resulta $\zeta = 3$ (respuesta sobreamortiguada, con polos en $-0{,}17$ y $-5{,}83$) y además el valor final sería
+$T(0) = \frac{5K}{5+5K} = -4$, es decir, una salida invertida y lejos de la referencia.
+Por lo tanto, solo con ganancia no se cumplen los requisitos y es necesario el controlador PI.
+\subsection*{Compensación con PI}
+
+El PI tiene la forma:
+\[
+C(s) = K\cdot \frac{(s+a)}{s}
+\]
+
+Armando la ecuación característica:
+\[
+1+C(s)\cdot G(s) = 0 \rightarrow s^3+6s^2+(5+5K)s+5K\cdot a = 0
+\]
+Como se puede ver, aumentó un orden al agregar un polo.
+
+Debido a que se busca un sistema de polos conjugados con $\omega_n=1$, y se agrega un polo más de lazo cerrado ubicado en el punto -p real, siguiendo la regla 3 de compensadores (volviéndolo un sistema de tercer orden), se puede escribir el sistema deseado como:
+\[
+(s^2+2\zeta \omega_n s + \omega_n^2)(s+p)
+\]
+
+Como se cuenta una ecuación deseada, comparamos con la ecuación característica real:
+\[
+s^3+6s^2+(5+5K)s+5K\cdot a = s^3+(p+2\zeta )s^2 + (1+2\zeta p)s + p
+\]
+Utilizando la igualdad de términos, llegamos al siguiente sistema:
+\begin{equation}
+    \begin{cases}
+    p+2\zeta = 6 \\
+    1+ 2\zeta p = 5 + 5K \\
+    p = 5K\cdot a 
+    \end{cases}
+\end{equation}
+
+Al tener tres ecuaciones y cuatro incógnitas (p, $\zeta$, K, a), se debe fijar una. En este caso, se fija $\zeta$ (se puede observar que el sistema presenta infinitas soluciones subamortiguadas según el $\zeta$ elegido).
+Para elegir $\zeta$, primero se hallan las condiciones que debe cumplir.
+Como $K$ y $a$ todavía son incógnitas, se aplica Routh-Hurwitz (regla 5) sobre la ecuación característica real $s^3 + 6s^2 + (5+5K)s + 5Ka = 0$:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|cc}
+$s^3$ & $1$ & $5+5K$ \\
+$s^2$ & $6$ & $5Ka$ \\
+$s^1$ & $b_1 = \dfrac{6(5+5K) - 5Ka}{6} = 5 + 5K - \dfrac{5Ka}{6}$ & $0$ \\
+$s^0$ & $5Ka$ & \\
+\end{tabular}
+\caption{Tabla de Routh-Hurwitz con $K$ y $a$ como incógnitas.}
+\end{table}
+
+Para que no haya cambios de signo en la primera columna se necesita:
+\begin{itemize}
+    \item $5Ka > 0$, es decir que $K$ y $a$ tengan el mismo signo.
+    \item $b_1 > 0$, es decir $6 + 6K - Ka > 0$. Esta condición se verifica al final,
+    con los valores ya resueltos.
+\end{itemize}
+
+Por la regla 4, el cero del compensador debe estar en el semiplano izquierdo, es decir $a > 0$. Combinado con $Ka > 0$, resulta que:
+\[
+K > 0
+\]
+Con $K < 0$ el sistema sería inestable, ya que $5Ka$ sería negativo (con $a>0$).
+
+Para hallar el rango de $\zeta$ se despeja $K$ del sistema (1):
+\begin{align*}
+p &= 6 - 2\zeta && \text{(de la primera ecuación)} \\
+K &= \frac{2\zeta p - 4}{5} = \frac{2\zeta(6 - 2\zeta) - 4}{5} = \frac{12\zeta - 4\zeta^2 - 4}{5} && \text{(de la segunda, reemplazando } p\text{)}
+\end{align*}
+
+Imponiendo $K > 0$:
+\[
+12\zeta - 4\zeta^2 - 4 > 0 \;\rightarrow\; \zeta^2 - 3\zeta + 1 < 0 \;\rightarrow\; (\zeta - 0{,}382)(\zeta - 2{,}618) < 0
+\]
+Por ende:
+\[
+0{,}382 < \zeta < 2{,}618
+\]
+
+Luego, se debe considerar la condición de que el cero del compensador PI debe estar en el semiplano izquierdo (según la regla 4 de compensadores).
+Es decir, a > 0. Utilizando la tercera ecuación del sistema y desplazando la desigualdad hasta la primera ecuación:
+\[
+a = \frac{p}{5K} > 0 \rightarrow p > 0 \rightarrow 6 - 2\zeta > 0 \rightarrow \zeta < 3
+\]
+Haciendo la intersección de estas dos condiciones con que la respuesta debe ser subamortiguada:
+\begin{equation}
+    \boxed{0,382 < \zeta < 1}
+\end{equation}
+
+Por ende, el valor elegido que cumple con las condiciones resulta:
+\begin{equation}
+    \boxed{\zeta = 0,5}
+\end{equation}
+
+Reemplazando en el sistema de ecuaciones, que ahora cuenta con la misma cantidad de incógnitas que de ecuaciones:
+
+\begin{equation}
+    \begin{cases}
+    p+2\cdot 0,5 = 6 \rightarrow p = 5 \\
+    1+ 2\cdot 0,5 \cdot p = 5 + 5K \rightarrow 1+ 2\cdot 0,5 \cdot 5 = 5 + 5K \rightarrow K = 0,2\\
+    p = 5K\cdot a \rightarrow 5 = 5\cdot 0,2 a \rightarrow a = 5
+    \end{cases}
+\end{equation}
+
+El compensador PI resultante es:
+\[
+C(s) = 0,2 \cdot \frac{(s+5)}{s}
+\]
+
+Como se puede observar, el cero de C(s) se cancela con uno de los polos de la planta. Esto lo permite la regla 6 de compensadores, pues se cancela una sola singularidad en el semiplano izquierdo. 
+Este resultado proviene de la elección de $\zeta$: de las infinitas soluciones posibles, $\zeta = 0{,}5$ hace que el cero del PI coincida con el polo de la planta en $-5$. 
+Esta coincidencia es consecuencia del valor elegido y no estaba buscada de antemano. Su ventaja es que $T(s)$ queda como un sistema de segundo orden puro, sin ceros a lazo cerrado. 
+En consecuencia, las fórmulas de $MP$, $t_p$ y $t_s$ valen exactamente para los polos complejos y la simulación puede compararse directamente con la teoría (a diferencia de lo que ocurrió en el Ejercicio 2, inciso d). 
+Además, se obtiene un lazo más simple. Esto se demuestra a continuación:
+\[
+C(s)G(s) = 0{,}2\,\frac{s+5}{s}\cdot\frac{5}{(s+1)(s+5)} = \frac{1}{s(s+1)}
+\]
+\[
+T(s) = \frac{1}{s^2 + s + 1} \rightarrow \omega_n^2 = 1 \Rightarrow \omega_n = 1,
+\quad 2\zeta\omega_n = 1 \Rightarrow \zeta = 0{,}5
+\]
+
+T(s), en este caso, cumple tanto la condición de $\omega_n = 1$ como de un sistema subamortiguado.
+
+\subsection*{Estabilidad}
+
+Para verificar la estabilidad mediante Routh-Hurwitz, se utiliza la ecuación característica reemplazando los valores obtenidos:
+\[
+s^3+6s^2+(5+5K)s+5K\cdot a = 0 \rightarrow s^3 + 6s^2 + 6s + 5 = 0
+\]
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|cc}
+$s^3$ & $1$ & $6$ \\
+$s^2$ & $6$ & $5$ \\
+$s^1$ & $\dfrac{31}{6}$ & $0$ \\
+$s^0$ & $\dfrac{\frac{31}{6}\cdot 5 - 6\cdot 0}{\frac{31}{6}} = 5$ & \\
+\end{tabular}
+\caption{Tabla de Routh-Hurwitz.}
+\end{table}
+
+Como la primera columna no presenta cambios de signo, el sistema es estable con los valores obtenidos. 
+Además, con estos valores se cumple la condición pendiente de la tabla con incógnitas: $b_1 = 5 + 5(0{,}2) - \frac{5(0{,}2)(5)}{6} = \frac{31}{6} > 0$.
+Los polos de lazo cerrado son $-0{,}5 \pm 0{,}866j$ y $-5$. El polo en $-5$ está alejado de los complejos, por lo que no domina (regla 8). 
+Además, al cancelarse con el cero del PI, no aparece en $T(s)$. 
+Sin embargo, sigue siendo un polo de la ecuación característica completa, $(s+5)(s^2+s+1) = 0$. Es un modo oculto rápido y estable, por lo que no genera problemas (regla 6).
+
+\subsection*{Verificación por simulación}
+
+Se simuló la respuesta al escalón unitario de la transferencia completa, sin simplificar, $T(s) = \dfrac{0{,}2(s+5)}{s^3 + 6s^2 + 6s + 5}$, y de la simplificada,
+$T(s) = \dfrac{1}{s^2+s+1}$.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{imagenes/ej9_escalon.png}
+\caption{Respuesta al escalón unitario del Ejercicio 9.}
+\end{figure}
+
+Las dos curvas coinciden. Los valores teóricos y los medidos son:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcc}
+\hline
+ & Teórico & Simulación \\
+\hline
+$MP$ & $16{,}3\%$ & $16{,}30\%$ \\
+$t_p$ & $3{,}63$ s & $3{,}63$ s \\
+$t_s$ (2\,\%) & $8$ s & $8{,}08$ s \\
+Valor final & $1$ & $1{,}000$ \\
+\hline
+\end{tabular}
+\caption{Comparación entre los parámetros teóricos y los simulados.}
+\end{table}
+
+$MP$ y $t_p$ coinciden con la teoría porque $T(s)$ es de segundo orden puro. La pequeña diferencia en $t_s$ se debe a que $t_s \approx 4/(\zeta\omega_n)$ es una aproximación de la envolvente. El valor final es $1$, es decir que el error al escalón es nulo.
+
+\subsection*{¿Qué beneficio tiene implementar este tipo de compensadores al sistema tipo cero?}
+
+El beneficio de agregar este compensador a un sistema tipo cero es que el polo en el origen hace que el sistema pase a ser tipo 1 y, por ende, el error al escalón sea nulo.
+Con solo ganancia, en cambio, el error es $e_{ss} = \frac{1}{1+K_p}$ con $K_p = K\,G(0) = K$. 
+Por ejemplo, con $K = 1$ resulta $e_{ss} = 50\%$ y nunca se anula (el valor final simulado es $0{,}5$).
+
+\subsection*{¿Y si se hubiera optado por cancelar el polo lento?}
+
+Este método es válido siempre y cuando se respeten los requisitos de la consigna. El polo más lento es el que está más cerca del origen, en $-1$, por lo que se elige $a = 1$:
+\[
+C(s) = K\,\frac{s+1}{s} \;\rightarrow\; C(s)G(s) = \frac{5K}{s(s+5)}
+\]
+A lazo cerrado, la ecuación característica es:
+\[
+s^2 + 5s + 5K = s^2 + 2\zeta\omega_n s + \omega_n^2
+\]
+Igualando términos y sabiendo que la consigna pide $\omega_n = 1$:
+\begin{equation}
+\begin{cases}
+\omega_n^2 = 5K \rightarrow 1 = 5K \rightarrow K = 0{,}2 \\
+2\zeta\omega_n = 5 \rightarrow \zeta = \frac{5}{2} = 2{,}5
+\end{cases}
+\end{equation}
+
+El valor de $\zeta$ resultante es $2{,}5$, por lo que la respuesta es sobreamortiguada (polos reales en $-0{,}21$ y $-4{,}79$). 
+Esto incumple la condición de subamortiguamiento. La causa es que el coeficiente $5$ del término en $s$ lo fija el polo de la planta que no se cancela ($-5$), y $K$ no puede modificarlo. 
+Con ese polo y $\omega_n = 1$, el amortiguamiento queda forzado a $2{,}5$. De hecho, $a = 1$ solo se da para $\zeta = 1$ o $\zeta = 2{,}5$ (resolviendo $2\zeta^2 - 7\zeta + 5 = 0$), y ninguno es subamortiguado.
+
+Además, el polo cancelado no desaparece (regla 8). La ecuación característica completa es
+\[
+(s+1)(s^2 + 5s + 5K) = 0
+\]
+por lo que queda un polo de lazo cerrado oculto en $-1$ que no aparece en $T(s)$. Es un modo lento, a diferencia del polo oculto en $-5$ del diseño elegido, que es rápido.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcc}
+\hline
+Opción & Polos de lazo cerrado & Tipo de respuesta \\
+\hline
+Cancelar $-5$ ($a = 5$, $K = 0{,}2$) & $-0{,}5 \pm 0{,}866j$ y $-5$ & Subamortiguada \\
+Cancelar $-1$ ($a = 1$, $K = 0{,}2$) & $-0{,}21$, $-4{,}79$ y $-1$ & Sobreamortiguada \\
+\hline
+\end{tabular}
+\caption{Comparación de las dos opciones de cancelación.}
+\end{table}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{imagenes/ej9_comparacion.png}
+\caption{Comparación entre el diseño elegido, la cancelación del polo lento y el control proporcional.}
+\end{figure}
+
+En la simulación, la alternativa no presenta sobrepico y tiene $t_s \approx 19$ s, contra los $8$ s del diseño elegido. Por lo tanto, cancelar el polo lento no hubiera dado un resultado acorde a lo pedido.
+(En el caso $\zeta = 1$ se obtiene $K = 0{,}8$ y $T(s) = \frac{4}{(s+1)(s+4)}$: el polo doble en $-1$ solo se logra contando el polo oculto, y la respuesta visible sigue siendo sobreamortiguada.)
+
+\subsection*{Sensibilidad a una cancelación imperfecta}
+
+En la práctica el cero del PI no coincide exactamente con el polo de la planta. Se simuló el mismo diseño ($K = 0{,}2$) con el cero desplazado, $a = 5{,}5$ y $a = 4{,}5$:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{imagenes/ej9_sensibilidad.png}
+\caption{Respuesta al escalón con cancelación exacta y con el cero desplazado.}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\hline
+ & Polos de lazo cerrado & $MP$ & $t_s$ (2\,\%) \\
+\hline
+$a = 5$ (elegido) & $-0{,}5 \pm 0{,}866j$ y $-5$ & $16{,}30\%$ & $8{,}08$ s \\
+$a = 5{,}5$ & $-0{,}49 \pm 0{,}93j$ y $-5{,}02$ & $18{,}99\%$ & $7{,}94$ s \\
+$a = 4{,}5$ & $-0{,}51 \pm 0{,}80j$ y $-4{,}98$ & $13{,}50\%$ & $6{,}08$ s \\
+\hline
+\end{tabular}
+\caption{Efecto de una cancelación imperfecta.}
+\end{table}
+
+Con un error del $10\%$ en la posición del cero, el sobrepico varía unos 3 puntos porcentuales y el sistema sigue siendo estable, con error nulo al escalón. 
+Esto se debe a que los polos complejos casi no se mueven y el tercer polo (cerca de $-5$) está lejos del eje imaginario. 
+La desventaja de la cancelación es entonces que $T(s)$ recupera un cero que ya no se cancela y las fórmulas de segundo orden dejan de valer con exactitud.
 
 \section*{Ejercicio 12 -- Incubadora neonatal}
 
