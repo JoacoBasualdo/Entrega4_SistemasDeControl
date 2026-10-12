@@ -19,6 +19,9 @@
 \usepackage{multicol}
 \usepackage{float}
 \usepackage{subcaption}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
@@ -541,5 +544,882 @@ s^0 & 100K - 24 &
 
 
 
+\section*{Ejercicio 12 -- Incubadora neonatal}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ej12.png}
+\end{figure}
+
+
+La incubadora neonatal presenta la siguiente
+función de transferencia:
+
+\begin{equation}
+    G(s)=\frac{T(s)}{P(s)}
+    =\frac{0.0743}{s^2+0.143s+0.003}
+\end{equation}
+
+donde $T(s)$ representa la temperatura y
+$P(s)$ la potencia disipada por el calefactor.
+
+Se desea obtener:
+\[
+MP=5\%, \qquad t_s=20\,s
+\]
+
+Se considera realimentación unitaria:
+
+\[
+H(s)=1
+\]
+
+\subsection*{Cálculos preliminares}
+
+Para un sistema de segundo orden, el
+sobrepico está relacionado con el
+coeficiente de amortiguamiento mediante:
+
+\begin{equation}
+    MP=e^{-\frac{\pi\zeta}
+    {\sqrt{1-\zeta^2}}}
+\end{equation}
+
+Reemplazando:
+
+\[
+0.05=e^{-\frac{\pi\zeta}
+{\sqrt{1-\zeta^2}}}
+\]
+
+Aplicando logaritmo natural:
+
+\[
+\ln(0.05)=
+-\frac{\pi\zeta}{\sqrt{1-\zeta^2}}
+\]
+
+Despejando:
+
+\begin{equation}
+    \boxed{\zeta=0.6901}
+\end{equation}
+
+Utilizamos la aproximación del tiempo
+de establecimiento al $2\%$:
+
+\begin{equation}
+    t_s\simeq\frac{4}{\zeta\omega_n}
+\end{equation}
+
+Como $t_s=20\,s$:
+
+\[
+20=\frac{4}{0.6901\omega_n}
+\]
+
+Por lo tanto:
+
+\begin{equation}
+    \boxed{\omega_n=0.2898\ rad/s}
+\end{equation}
+
+Los polos deseados son:
+
+\[
+s_{d1,2}=
+-\zeta\omega_n
+\pm j\omega_n\sqrt{1-\zeta^2}
+\]
+
+\begin{equation}
+    \boxed{s_d=-0.2\pm j0.2097}
+\end{equation}
+
+Factorizamos el denominador de la planta:
+
+\[
+s^2+0.143s+0.003=(s+a)(s+b)
+\]
+
+Resolviendo la ecuación cuadrática:
+
+\[
+a=0.0255408,
+\qquad b=0.1174592
+\]
+
+Por lo tanto:
+
+\begin{equation}
+    \boxed{
+    G(s)=\frac{0.0743}
+    {(s+0.0255408)(s+0.1174592)}
+    }
+\end{equation}
+
+% ========================================
+
+\section*{Inciso a) Compensación clásica}
+
+Se desea diseñar un compensador clásico
+formado por un polo, un cero y una ganancia.
+
+Su estructura es:
+
+\begin{equation}
+    \boxed{
+    C_a(s)=K\frac{s+z}{s+p}
+    }
+\end{equation}
+
+\subsection*{1. Elección de la estructura}
+
+Se utilizará el método de cancelación de
+una singularidad estable de la planta.
+
+Elegimos el cero del compensador para
+cancelar el polo ubicado en:
+
+\[
+s=-0.1174592
+\]
+
+Por lo tanto:
+
+\[
+z=0.1174592
+\]
+
+El compensador resulta:
+
+\[
+C_a(s)=K\frac{s+0.1174592}{s+p}
+\]
+
+La transferencia de lazo abierto es:
+
+\[
+L_a(s)=C_a(s)G(s)H(s)
+\]
+
+\[
+L_a(s)=
+K\frac{s+0.1174592}{s+p}
+\frac{0.0743}
+{(s+0.0255408)(s+0.1174592)}
+\]
+
+Cancelando la singularidad:
+
+\begin{equation}
+    \boxed{
+    L_a(s)=
+    \frac{0.0743K}
+    {(s+0.0255408)(s+p)}
+    }
+\end{equation}
+
+Como la singularidad cancelada pertenece
+al semiplano izquierdo, la cancelación
+no introduce un modo interno inestable.
+
+\subsection*{2. Condición de fase}
+
+Para que los polos deseados pertenezcan
+al Lugar de Raíces, debe cumplirse:
+
+\begin{equation}
+    \angle L_a(s_d)=-180^\circ
+\end{equation}
+
+Trabajamos con el polo deseado:
+
+\[
+s_d=-0.2+j0.2097
+\]
+
+El ángulo aportado por el polo de
+la planta es:
+
+\[
+s_d+0.0255408
+=
+-0.1744592+j0.2097
+\]
+
+Por lo tanto:
+
+\[
+\phi_1=
+180^\circ-
+\tan^{-1}
+\left(
+\frac{0.2097}{0.1744592}
+\right)
+\]
+
+\begin{equation}
+    \boxed{\phi_1\simeq129.75^\circ}
+\end{equation}
+
+El polo del compensador debe aportar
+el ángulo restante:
+
+\[
+\phi_p=180^\circ-129.75^\circ
+\]
+
+\begin{equation}
+    \boxed{\phi_p=50.25^\circ}
+\end{equation}
+
+Utilizando geometría en el plano complejo:
+
+\[
+\tan(50.25^\circ)
+=
+\frac{0.2097}{p-0.2}
+\]
+
+Despejando:
+
+\[
+p=0.2+
+\frac{0.2097}{\tan(50.25^\circ)}
+\]
+
+\begin{equation}
+    \boxed{p\simeq0.37446}
+\end{equation}
+
+De esta forma, el compensador presenta
+un polo en:
+
+\[
+s=-0.37446
+\]
+
+\subsection*{3. Condición de módulo}
+
+Debe cumplirse:
+
+\begin{equation}
+    |L_a(s_d)|=1
+\end{equation}
+
+Por lo tanto:
+
+\[
+\left|
+\frac{0.0743K}
+{(s_d+0.0255408)(s_d+0.37446)}
+\right|=1
+\]
+
+Despejando:
+
+\[
+K=
+\frac{
+|s_d+0.0255408|
+|s_d+0.37446|
+}{0.0743}
+\]
+
+Evaluando en el punto deseado:
+
+\begin{equation}
+    \boxed{K\simeq1.0017}
+\end{equation}
+
+\subsection*{4. Compensador obtenido}
+
+Finalmente:
+
+\begin{equation}
+    \boxed{
+    C_a(s)=
+    1.0017
+    \frac{s+0.1174592}{s+0.37446}
+    }
+\end{equation}
+
+Se obtuvo una red de adelanto de fase,
+ya que su cero se encuentra más cerca
+del origen que su polo.
+
+\subsection*{5. Transferencia a lazo cerrado}
+
+La transferencia a lazo cerrado es:
+
+\[
+T_a(s)=\frac{L_a(s)}{1+L_a(s)}
+\]
+
+Reemplazando:
+
+\[
+T_a(s)=
+\frac{0.0743K}
+{(s+0.0255408)(s+0.37446)+0.0743K}
+\]
+
+Desarrollando y reemplazando la ganancia:
+
+\begin{equation}
+    \boxed{
+    T_a(s)=
+    \frac{0.074426}
+    {s^2+0.4s+0.08399}
+    }
+\end{equation}
+
+Comparando con el denominador
+característico de segundo orden:
+
+\[
+s^2+2\zeta\omega_ns+\omega_n^2
+\]
+
+se verifica que:
+
+\[
+2\zeta\omega_n=0.4
+\]
+
+\[
+\omega_n^2=0.08399
+\]
+
+Por lo tanto:
+
+\[
+\zeta=0.6901
+\]
+
+\[
+\omega_n=0.2898\ rad/s
+\]
+
+Los polos de lazo cerrado son:
+
+\begin{equation}
+    \boxed{
+    s_{1,2}=-0.2\pm j0.2097
+    }
+\end{equation}
+
+\subsection*{6. Verificación temporal y estabilidad}
+
+El sobrepico es:
+
+\[
+MP=
+e^{-\frac{\pi\zeta}{\sqrt{1-\zeta^2}}}
+\]
+
+\begin{equation}
+    \boxed{MP=5\%}
+\end{equation}
+
+El tiempo de establecimiento aproximado
+al $2\%$ es:
+
+\[
+t_s\simeq\frac{4}{\zeta\omega_n}
+\]
+
+\begin{equation}
+    \boxed{t_s\simeq20\,s}
+\end{equation}
+
+Además, ambos polos de lazo cerrado
+poseen parte real negativa, por lo
+que el sistema es estable.
+
+El polo cancelado también pertenece
+al semiplano izquierdo.
+
+La ganancia estática es:
+
+\[
+T_a(0)=
+\frac{0.074426}{0.08399}
+\simeq0.88613
+\]
+
+Por lo tanto, el error estacionario
+ante un escalón unitario es:
+
+\[
+e_{ss}=1-T_a(0)
+\]
+
+\begin{equation}
+    \boxed{e_{ss}\simeq0.11387}
+\end{equation}
+
+Existe un error estacionario aproximado
+del $11.39\%$, aunque esto no contradice
+lo solicitado en el enunciado.
+
+% ========================================
+
+\section*{Inciso b) Compensación mediante PID}
+
+Se desea resolver el mismo problema
+utilizando un controlador PID.
+
+La estructura general es:
+
+\begin{equation}
+C_{PID}(s)=K_P+\frac{K_I}{s}+K_Ds
+\end{equation}
+
+Equivalentemente:
+
+\begin{equation}
+\boxed{
+C_{PID}(s)=
+K\frac{(s+z_1)(s+z_2)}{s}
+}
+\end{equation}
+
+\subsection*{1. Elección de la estructura}
+
+Elegimos uno de los ceros del PID para
+cancelar un polo estable de la planta:
+
+\[
+z_1=0.0255408
+\]
+
+Por lo tanto:
+
+\[
+C_{PID}(s)=
+K\frac{(s+0.0255408)(s+z_2)}{s}
+\]
+
+La transferencia de lazo abierto es:
+
+\[
+L_b(s)=C_{PID}(s)G(s)
+\]
+
+\[
+L_b(s)=
+K\frac{(s+0.0255408)(s+z_2)}{s}
+\frac{0.0743}
+{(s+0.0255408)(s+0.1174592)}
+\]
+
+Cancelando:
+
+\begin{equation}
+\boxed{
+L_b(s)=
+\frac{0.0743K(s+z_2)}
+{s(s+0.1174592)}
+}
+\end{equation}
+
+\subsection*{2. Condición de fase}
+
+Para que el punto deseado pertenezca
+al Lugar de Raíces:
+
+\[
+\angle L_b(s_d)=-180^\circ
+\]
+
+Trabajamos con:
+
+\[
+s_d=-0.2+j0.2097
+\]
+
+Calculamos el aporte del polo
+ubicado en el origen:
+
+\[
+\phi_1=
+180^\circ-
+\tan^{-1}
+\left(\frac{0.2097}{0.2}\right)
+\]
+
+\begin{equation}
+\boxed{\phi_1=133.64^\circ}
+\end{equation}
+
+El aporte del segundo polo es:
+
+\[
+s_d+0.1174592=
+-0.0825408+j0.2097
+\]
+
+\[
+\phi_2=
+180^\circ-
+\tan^{-1}
+\left(
+\frac{0.2097}{0.0825408}
+\right)
+\]
+
+\begin{equation}
+\boxed{\phi_2=111.48^\circ}
+\end{equation}
+
+La suma de ángulos de los polos es:
+
+\[
+\sum\phi_p=
+133.64^\circ+111.48^\circ
+\]
+
+\[
+\boxed{\sum\phi_p=245.12^\circ}
+\]
+
+Por lo tanto, el cero restante
+debe aportar:
+
+\[
+\phi_z=245.12^\circ-180^\circ
+\]
+
+\begin{equation}
+\boxed{\phi_z=65.12^\circ}
+\end{equation}
+
+Aplicando geometría:
+
+\[
+\tan(65.12^\circ)
+=
+\frac{0.2097}{z_2-0.2}
+\]
+
+Despejando:
+
+\[
+z_2=
+0.2+\frac{0.2097}{\tan(65.12^\circ)}
+\]
+
+\begin{equation}
+\boxed{z_2=0.29727}
+\end{equation}
+
+\subsection*{3. Condición de módulo}
+
+Debe cumplirse:
+
+\begin{equation}
+|L_b(s_d)|=1
+\end{equation}
+
+Por lo tanto:
+
+\[
+\left|
+\frac{
+0.0743K(s_d+0.29727)
+}{
+s_d(s_d+0.1174592)
+}
+\right|=1
+\]
+
+Despejando:
+
+\[
+K=
+\frac{
+|s_d|\,|s_d+0.1174592|
+}{
+0.0743|s_d+0.29727|
+}
+\]
+
+Evaluando en el punto deseado:
+
+\begin{equation}
+\boxed{K=3.8027}
+\end{equation}
+
+\subsection*{4. Controlador PID obtenido}
+
+Finalmente:
+
+\begin{equation}
+\boxed{
+C_{PID}(s)=
+3.8027
+\frac{
+(s+0.0255408)(s+0.29727)
+}{s}
+}
+\end{equation}
+
+Se obtuvo un controlador PID completo,
+formado por:
+
+\begin{itemize}
+    \item Un polo en el origen.
+    \item Un cero en $s=-0.0255408$.
+    \item Un cero en $s=-0.29727$.
+    \item Una ganancia $K=3.8027$.
+\end{itemize}
+
+\subsection*{5. Transferencia a lazo cerrado}
+
+La transferencia a lazo cerrado es:
+
+\[
+T_b(s)=\frac{L_b(s)}{1+L_b(s)}
+\]
+
+Reemplazando:
+
+\[
+T_b(s)=
+\frac{
+0.0743K(s+0.29727)
+}{
+s(s+0.1174592)+0.0743K(s+0.29727)
+}
+\]
+
+Desarrollando:
+
+\begin{equation}
+\boxed{
+T_b(s)=
+\frac{0.28254(s+0.29727)}
+{s^2+0.4s+0.08399}
+}
+\end{equation}
+
+Los polos de lazo cerrado son:
+
+\begin{equation}
+\boxed{
+s_{1,2}=-0.2\pm j0.2097
+}
+\end{equation}
+
+De esta manera se verifica que los
+polos del sistema compensado coinciden
+con los polos deseados.
+
+Utilizando las relaciones aproximadas
+de segundo orden asociadas a los polos:
+
+\[
+\boxed{\zeta=0.6901}
+\]
+
+\[
+\boxed{\omega_n=0.2898\ rad/s}
+\]
+
+\[
+MP_{\mathrm{aprox}}
+=e^{-\frac{\pi\zeta}{\sqrt{1-\zeta^2}}}
+\]
+
+\begin{equation}
+\boxed{MP_{\mathrm{aprox}}=5\%}
+\end{equation}
+
+Y para el tiempo de establecimiento:
+
+\[
+t_s\simeq\frac{4}{\zeta\omega_n}
+\]
+
+\begin{equation}
+\boxed{t_s\simeq20\,s}
+\end{equation}
+
+Estas expresiones corresponden a
+la aproximación de segundo orden
+basada en los polos. No se evalúa
+aquí la respuesta temporal completa,
+que también depende del cero restante.
+
+\subsection*{6. Parámetros del PID}
+
+El controlador obtenido es:
+
+\[
+C_{PID}(s)=
+3.8027
+\frac{
+(s+0.0255408)(s+0.29727)
+}{s}
+\]
+
+Desarrollando el numerador:
+
+\[
+C_{PID}(s)=
+K\frac{
+s^2+(z_1+z_2)s+z_1z_2
+}{s}
+\]
+
+Separando términos:
+
+\[
+C_{PID}(s)=
+Ks+K(z_1+z_2)+\frac{Kz_1z_2}{s}
+\]
+
+Comparando con:
+
+\[
+C_{PID}(s)=K_P+\frac{K_I}{s}+K_Ds
+\]
+
+Obtenemos:
+
+\[
+K_D=K
+\]
+
+\[
+K_P=K(z_1+z_2)
+\]
+
+\[
+K_I=Kz_1z_2
+\]
+
+Reemplazando los valores:
+
+\begin{equation}
+\boxed{K_D=3.8027}
+\end{equation}
+
+\begin{equation}
+\boxed{K_P\simeq1.2277}
+\end{equation}
+
+\begin{equation}
+\boxed{K_I\simeq0.02887}
+\end{equation}
+
+Por lo tanto:
+
+\begin{equation}
+\boxed{
+C_{PID}(s)=
+1.2277+\frac{0.02887}{s}+3.8027s
+}
+\end{equation}
+
+\subsection*{7. Verificación de estabilidad}
+
+La ecuación característica es:
+
+\[
+s^2+0.4s+0.08399=0
+\]
+
+Como es un polinomio de segundo orden
+con todos sus coeficientes positivos,
+se cumple el criterio de Routh-Hurwitz.
+
+Además, sus raíces son:
+
+\[
+s_{1,2}=-0.2\pm j0.2097
+\]
+
+El polo cancelado:
+
+\[
+s_3=-0.0255408
+\]
+
+también pertenece al semiplano izquierdo.
+
+Por lo tanto, el sistema es estable.
+
+\subsection*{8. Error de estado estacionario}
+
+La transferencia de lazo abierto es:
+
+\[
+L_b(s)=
+\frac{
+0.28254(s+0.29727)
+}{
+s(s+0.1174592)
+}
+\]
+
+Se observa que posee un polo en
+el origen, por lo que el sistema
+es de tipo 1.
+
+Para una entrada escalón unitario:
+
+\[
+e_{ss}=
+\lim_{s\to0}
+\frac{1}{1+L_b(s)}
+\]
+
+Como:
+
+\[
+\lim_{s\to0}L_b(s)=\infty
+\]
+
+Se obtiene:
+
+\begin{equation}
+\boxed{e_{ss}=0}
+\end{equation}
+
+Esta es una ventaja adicional del
+PID respecto del compensador clásico
+utilizado en el inciso anterior.
+
+\subsection*{Conclusión del inciso b)}
+
+Se obtuvo el controlador PID:
+
+\[
+\boxed{
+C_{PID}(s)=
+3.8027
+\frac{
+(s+0.0255408)(s+0.29727)
+}{s}
+}
+\]
+
+Mediante el método de sumatoria
+de ángulos y condición de módulo,
+se ubicaron los polos de lazo cerrado
+en las posiciones deseadas:
+
+\[
+\boxed{s_{1,2}=-0.2\pm j0.2097}
+\]
+
+Se verifica que el sistema es estable.
+
+Además, la acción integral permite
+eliminar el error de estado estacionario
+frente a una entrada escalón.
 
 \end{document}

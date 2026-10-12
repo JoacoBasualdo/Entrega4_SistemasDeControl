@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.8)  12 OCT 2026 12:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.8)  12 OCT 2026 12:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Joaquin Basualdo/Desktop/ITBA/4to 1er cuatri/Sistemas de Control/Guia 4/Entrega/main.tex"
-(c:/Users/Joaquin Basualdo/Desktop/ITBA/4to 1er cuatri/Sistemas de Control/Guia 4/Entrega/main.tex
+**c:/Users/facun/OneDrive/Documentos/GitHub/Entrega4_SistemasDeControl/main.tex
+(c:/Users/facun/OneDrive/Documentos/GitHub/Entrega4_SistemasDeControl/main.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
 (c:/texlive/2026/texmf-dist/tex/latex/base/article.cls
@@ -425,9 +425,37 @@ Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count328
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count329
+) (c:/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+) (c:/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (c:/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (c:/texlive/2026/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+ (c:/texlive/2026/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count330
+\Gm@cntv=\count331
+\c@Gm@tempcnt=\count332
+\Gm@bindingoffset=\dimen264
+\Gm@wd@mp=\dimen265
+\Gm@odd@mp=\dimen266
+\Gm@even@mp=\dimen267
+\Gm@layoutwidth=\dimen268
+\Gm@layoutheight=\dimen269
+\Gm@layouthoffset=\dimen270
+\Gm@layoutvoffset=\dimen271
+\Gm@dimlist=\toks40
 ) (c:/texlive/2026/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
 File: l3backend-pdftex.def 2026-08-10 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count330
+\l__color_backend_stack_int=\count333
 ) (./main.aux
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
@@ -436,78 +464,124 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Info: Redefining \. on input line 40.
-LaTeX Info: Redefining \% on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Info: Redefining \. on input line 43.
+LaTeX Info: Redefining \% on input line 43.
  (c:/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count331
-\scratchdimen=\dimen264
+\scratchcounter=\count334
+\scratchdimen=\dimen272
 \scratchbox=\box114
-\nofMPsegments=\count332
-\nofMParguments=\count333
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count334
-\MPscratchDim=\dimen265
-\MPnumerator=\count335
-\makeMPintoPDFobject=\count336
-\everyMPtoPDFconversion=\toks41
+\nofMPsegments=\count335
+\nofMParguments=\count336
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count337
+\MPscratchDim=\dimen273
+\MPnumerator=\count338
+\makeMPintoPDFobject=\count339
+\everyMPtoPDFconversion=\toks42
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=430.00462pt
+* \textheight=556.47656pt
+* \oddsidemargin=19.8752pt
+* \evensidemargin=19.8752pt
+* \topmargin=-13.87262pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
 Package babel Info: Main language set to 'spanish'.
- [1{c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+LaTeX Font Info:    Trying to load font information for U+msa on input line 71.
+(c:/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 71.
+ (c:/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1{c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 
 ]
-<imagenes/Ej2.png, id=11, 446.41782pt x 193.47281pt>
+<imagenes/Ej2.png, id=13, 446.41782pt x 193.47281pt>
 File: imagenes/Ej2.png Graphic file (type png)
 <use imagenes/Ej2.png>
-Package pdftex.def Info: imagenes/Ej2.png  used on input line 90.
-(pdftex.def)             Requested size: 426.79134pt x 184.97012pt.
+Package pdftex.def Info: imagenes/Ej2.png  used on input line 93.
+(pdftex.def)             Requested size: 430.00462pt x 186.36354pt.
  [2{c:/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./imagenes/ej2.png>]
-<imagenes/unasing.png, id=23, 934.24031pt x 633.86812pt>
+<imagenes/unasing.png, id=28, 934.24031pt x 633.86812pt>
 File: imagenes/unasing.png Graphic file (type png)
 <use imagenes/unasing.png>
-Package pdftex.def Info: imagenes/unasing.png  used on input line 169.
-(pdftex.def)             Requested size: 426.79134pt x 289.57109pt.
+Package pdftex.def Info: imagenes/unasing.png  used on input line 172.
+(pdftex.def)             Requested size: 430.00462pt x 291.75697pt.
  [3 <./imagenes/unasing.png>] [4]
-<imagenes/dosing.png, id=37, 1444.64719pt x 691.83469pt>
+<imagenes/dosing.png, id=42, 1444.64719pt x 691.83469pt>
 File: imagenes/dosing.png Graphic file (type png)
 <use imagenes/dosing.png>
-Package pdftex.def Info: imagenes/dosing.png  used on input line 293.
-(pdftex.def)             Requested size: 426.79134pt x 204.38504pt.
- [5 <./imagenes/dosing.png>]
-<imagenes/Ej5.png, id=42, 444.91219pt x 85.82062pt>
+Package pdftex.def Info: imagenes/dosing.png  used on input line 296.
+(pdftex.def)             Requested size: 430.00462pt x 205.9263pt.
+ [5 <./imagenes/dosing.png>] [6]
+<imagenes/Ej5.png, id=50, 444.91219pt x 85.82062pt>
 File: imagenes/Ej5.png Graphic file (type png)
 <use imagenes/Ej5.png>
-Package pdftex.def Info: imagenes/Ej5.png  used on input line 377.
-(pdftex.def)             Requested size: 426.79134pt x 82.32529pt.
- [6]
-<imagenes/Ej5a.png, id=46, 1444.64719pt x 677.53125pt>
+Package pdftex.def Info: imagenes/Ej5.png  used on input line 380.
+(pdftex.def)             Requested size: 430.00462pt x 82.94469pt.
+<imagenes/Ej5a.png, id=51, 1444.64719pt x 677.53125pt>
 File: imagenes/Ej5a.png Graphic file (type png)
 <use imagenes/Ej5a.png>
-Package pdftex.def Info: imagenes/Ej5a.png  used on input line 406.
-(pdftex.def)             Requested size: 426.79134pt x 200.15945pt.
- [7 <./imagenes/Ej5.png> <./imagenes/Ej5a.png>] [8]
-<imagenes/Ej5b.png, id=56, 1444.64719pt x 676.77844pt>
+Package pdftex.def Info: imagenes/Ej5a.png  used on input line 409.
+(pdftex.def)             Requested size: 430.00462pt x 201.66884pt.
+ [7 <./imagenes/Ej5.png>] [8 <./imagenes/Ej5a.png>] [9]
+<imagenes/Ej5b.png, id=64, 1444.64719pt x 676.77844pt>
 File: imagenes/Ej5b.png Graphic file (type png)
 <use imagenes/Ej5b.png>
-Package pdftex.def Info: imagenes/Ej5b.png  used on input line 534.
-(pdftex.def)             Requested size: 426.79134pt x 199.93706pt.
- [9] [10 <./imagenes/Ej5b.png>] (./main.aux
+Package pdftex.def Info: imagenes/Ej5b.png  used on input line 537.
+(pdftex.def)             Requested size: 430.00462pt x 201.44476pt.
+<imagenes/Ej12.png, id=65, 488.32437pt x 136.00812pt>
+File: imagenes/Ej12.png Graphic file (type png)
+<use imagenes/Ej12.png>
+Package pdftex.def Info: imagenes/Ej12.png  used on input line 551.
+(pdftex.def)             Requested size: 430.00462pt x 119.76637pt.
+ [10 <./imagenes/Ej5b.png>] [11 <./imagenes/Ej12.png>] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] (./main.aux
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
 )
@@ -517,18 +591,18 @@ L3 programming layer <2026-08-10>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 9641 strings out of 467099
- 164688 string characters out of 5412503
- 617210 words of memory out of 5000000
- 38851 multiletter control sequences out of 15000+600000
- 632230 words of font info for 55 fonts, out of 8000000 for 9000
+ 10891 strings out of 467099
+ 180193 string characters out of 5412503
+ 630861 words of memory out of 5000000
+ 40063 multiletter control sequences out of 15000+600000
+ 641535 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,12n,131p,421b,388s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb>
-Output written on main.pdf (10 pages, 755310 bytes).
+ 83i,12n,131p,399b,386s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on main.pdf (21 pages, 1004227 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
+ 203 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
